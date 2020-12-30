@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="author" content="WB DataDic" />
-    <meta name="description" content="ParqueUniversal Data Dictionary." />
-    <title>ParqueUniversal Data Dictionary</title>
+    <meta name="description" content="park Data Dictionary." />
+    <title>park Data Dictionary</title>
     <style type="text/css">
     table{
         width: 100%;
@@ -51,9 +51,9 @@
 </head>
 <body>
 <div id="title-sect">
-<h1>ParqueUniversal<br> Data Dictionay</h1>
+<h1>park<br> Data Dictionay</h1>
 <p>
-<em>2020-12-28</em>
+<em>2020-12-29</em>
 </p>
 <p class="proj-desc">
 <em></em>
@@ -89,7 +89,7 @@
 <tr>
     <td>nombre_atracciones</td>
     <td>VARCHAR(100)</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -113,9 +113,22 @@
     <td></td>
 </tr>
 <tr>
-    <td>nombre_parque</td>
-    <td>VARCHAR(100)</td>
+    <td>idparques</td>
+    <td>INT(10)</td>
     <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>idatracciones</td>
+    <td>INT(10)</td>
+    <td>&#10004;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -142,10 +155,10 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>nombre_atracciones</td>
-    <td>VARCHAR(100)</td>
+    <td>idatracciones</td>
+    <td>INT(10)</td>
     <td>&#10004;</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -155,10 +168,10 @@
     <td></td>
 </tr>
 <tr>
-    <td>nombre_paquete</td>
-    <td>VARCHAR(100)</td>
+    <td>idpaquete</td>
+    <td>INT(10)</td>
     <td>&#10004;</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -186,7 +199,7 @@
 <tr>
     <td>nombre_cliente</td>
     <td>VARCHAR(100)</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -236,10 +249,23 @@
     <td></td>
 </tr>
 <tr>
-    <td>nombre_paquete</td>
-    <td>VARCHAR(100)</td>
+    <td>idpaquete</td>
+    <td>INT(10)</td>
+    <td>&nbsp;</td>
+    <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>idcompra</td>
+    <td>INT(10)</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -267,7 +293,7 @@
 <tr>
     <td>nombre_hotel</td>
     <td>VARCHAR(100)</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -291,10 +317,23 @@
     <td></td>
 </tr>
 <tr>
-    <td>nombre_parque</td>
-    <td>VARCHAR(100)</td>
+    <td>idparques</td>
+    <td>INT(10)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>idhotel</td>
+    <td>VARCHAR(45)</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -322,7 +361,7 @@
 <tr>
     <td>nombre_paquete</td>
     <td>VARCHAR(100)</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -336,6 +375,19 @@
     <td>precio</td>
     <td>DOUBLE</td>
     <td>&nbsp;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>idpaquete</td>
+    <td>INT(10)</td>
+    <td>&#10004;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -364,7 +416,7 @@
 <tr>
     <td>nombre_parque</td>
     <td>VARCHAR(100)</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -478,6 +530,19 @@
     <td></td>
     <td></td>
 </tr>
+<tr>
+    <td>idparques</td>
+    <td>INT(10)</td>
+    <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
 <table id='parques_boletos'>
 <caption>parques_boletos</caption>
 <tr><td colspan='11'></td></tr>
@@ -495,10 +560,10 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>nombre_parque</td>
-    <td>VARCHAR(100)</td>
-    <td>&nbsp;</td>
+    <td>idparques</td>
+    <td>INT(10)</td>
     <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -508,10 +573,10 @@
     <td></td>
 </tr>
 <tr>
-    <td>nombre_cliente</td>
-    <td>VARCHAR(100)</td>
-    <td>&nbsp;</td>
+    <td>idcompra</td>
+    <td>INT(10)</td>
     <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -550,10 +615,10 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>nombre_parque</td>
-    <td>VARCHAR(100)</td>
+    <td>idparques</td>
+    <td>INT(10)</td>
     <td>&#10004;</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -563,10 +628,10 @@
     <td></td>
 </tr>
 <tr>
-    <td>nombre_paquete</td>
-    <td>VARCHAR(100)</td>
+    <td>idpaquete</td>
+    <td>INT(10)</td>
     <td>&#10004;</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
