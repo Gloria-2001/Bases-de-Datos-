@@ -20,38 +20,63 @@ USE `park` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `park`.`parques` (
   `nombre_parque` VARCHAR(100) NOT NULL,
-  `horario` TIME NOT NULL,
-  `capacidad` INT(10) NOT NULL,
+  `horario` VARCHAR(100) NOT NULL,
   `ubicacion` VARCHAR(100) NULL,
   `idparques` INT(10) NOT NULL,
   PRIMARY KEY (`idparques`),
   UNIQUE INDEX `idparques_UNIQUE` (`idparques` ASC))
 ENGINE = InnoDB;
 
+insert into parques values
+	("Universal Studios Florida","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",123),
+    ("Universal's Islands of Adventure","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",456),
+    ("Universal's Volcano Bay","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",789),
+    ("Universal CityWalk","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",012);
 
 -- -----------------------------------------------------
 -- Table `park`.`hoteles`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `park`.`hoteles` (
   `nombre_hotel` VARCHAR(100) NOT NULL,
-  `restaurantes` VARCHAR(100) NOT NULL,
+  `beneficios` VARCHAR(10000) NOT NULL,
   `idhotel` INT(10) NULL,
   PRIMARY KEY (`idhotel`),
   UNIQUE INDEX `idhotel_UNIQUE` (`idhotel` ASC))
 ENGINE = InnoDB;
 
+insert into hoteles values
+	("Universal's Cabana Bay Beach Resort","Encuentros de personajes,Piscina,Alquiler cabañas,Gimnasio,Sala de juegos",607),
+    ("Loews Sapphire Falls Resort","Rum Dinner,Acceso a la playa,Piscina,Gimnasio,Servicio de bodas",608),
+	("Universal’s Aventura Hotel","Restaurante,Gimnasio,Piscina,Zona azuatica para niños,Campamentos para niños",609),
+    ("Loews Royal Pacific Resort","Piscina estilo laguna,Gimnasio,Ceremonia de antorchas,Servicio de bodas",610),
+    ("Hard Rock Hotel","Conciertos,Escuchar musica bajo el agua,Museo del Rock,Gimnasio,Servicio de bodas",611),
+    ("Loews Portofino Bay Hotel","Servicio de cabaña,Jacuzzi,Sala de juego,Tienda Italiana,Servicio de bodas,Spa",612),
+    ("Universal’s Endless Summer Resort–Surfside Inn and Suites","Piscina,Gimnasio,Sala de juegos",613),
+    ("Universal’s Endless Summer Resort-Dockside Inn and Suites","Piscina,Gimnasio,Sala de juegos",614);
 
 -- -----------------------------------------------------
 -- Table `park`.`paquetes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `park`.`paquetes` (
   `nombre_paquete` VARCHAR(100) NOT NULL,
-  `precio` DOUBLE NOT NULL,
+  `precio_por_persona` DOUBLE NOT NULL,
   `idpaquete` INT(10) NOT NULL,
+  `beneficios` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idpaquete`),
   UNIQUE INDEX `idpaquete_UNIQUE` (`idpaquete` ASC))
 ENGINE = InnoDB;
 
+insert into paquetes values
+	("Universal Express",69.99,450,"Incluye 1 parque,Evita filas"),
+    ("Universal Express Unlimited",90.00,451,"Acceso ilimitado a todos los parques,Evita filas"),
+    ("Volcano Bay Express",67.00,452,"Acceso ilimitado a 3 parques,Dura 14 dias"),
+    ("Paquete vacacional exclusivo para The Wizarding World of Harry Potter",105.00,453,"Acceso a The Wizarding World of Harry Potter,Hospedaje 5 noches"),
+    ("Paquete vacacional Premium",175.00,454,"Hospedaje 5 noches,Acceso a 2 parques"),
+    ("Paquete Vacacional Exclusivo Star-Worthy de American Express",105.00,455,"Hospedaje 4 noches,Ahorro al comprar con American Express"),
+    ("Pase anual 1",269.00,456,"Descuentos para Habitaciones del Hotel,Acceso a 2 parques"),
+    ("Pase anual 2",319.00,457,"Descuentos para Habitaciones del Hotel,Acceso a 2 parques,Descuento en estacionamiento"),
+    ("Pase anual 3",359.00,458,"Descuentos para Habitaciones del Hotel,Acceso a 2 parques,Descuento en estacionamiento y comidas"),
+    ("Pase anual 4",509.00,459,"Entrada a todos los parques,Descuento en estacionamiento,Entrada temprana al parque,Descuento en habitaciones y comida");
 
 -- -----------------------------------------------------
 -- Table `park`.`parques_paquetes`
@@ -71,7 +96,6 @@ CREATE TABLE IF NOT EXISTS `park`.`parques_paquetes` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `park`.`nacionalidad`
