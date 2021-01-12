@@ -72,7 +72,6 @@
 <li><a href='#paquetes'>paquetes</a></li>
 <li><a href='#parques'>parques</a></li>
 <li><a href='#parques_boletos'>parques_boletos</a></li>
-<li><a href='#parques_paquetes'>parques_paquetes</a></li>
 <li><a href='#tipo'>tipo</a></li>
 </ul>
 <table id='cliente'>
@@ -283,7 +282,7 @@
     <td>idpaquete</td>
     <td>INT(10)</td>
     <td>&nbsp;</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -390,7 +389,7 @@
     <td>idpaquete</td>
     <td>INT(10)</td>
     <td>&nbsp;</td>
-    <td>&#10004;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -565,8 +564,8 @@
     <td></td>
 </tr>
 <tr>
-    <td>restaurantes</td>
-    <td>VARCHAR(100)</td>
+    <td>beneficios</td>
+    <td>VARCHAR(900)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
@@ -662,7 +661,7 @@
     <td></td>
 </tr>
 <tr>
-    <td>precio</td>
+    <td>precio_por_persona</td>
     <td>DOUBLE</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
@@ -678,6 +677,19 @@
     <td>idpaquete</td>
     <td>INT(10)</td>
     <td>&#10004;</td>
+    <td>&#10004;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class='attr'>&nbsp;</td>
+    <td></td>
+    <td></td>
+</tr>
+<tr>
+    <td>beneficios</td>
+    <td>VARCHAR(1000)</td>
+    <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -718,20 +730,7 @@
 </tr>
 <tr>
     <td>horario</td>
-    <td>TIME</td>
-    <td>&nbsp;</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>capacidad</td>
-    <td>INT(10)</td>
+    <td>VARCHAR(20)</td>
     <td>&nbsp;</td>
     <td>&#10004;</td>
     <td>&nbsp;</td>
@@ -785,19 +784,6 @@
     <th>Comment</th>
 </tr>
 <tr>
-    <td>idparques</td>
-    <td>INT(10)</td>
-    <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
     <td>idcompra</td>
     <td>INT(10)</td>
     <td>&#10004;</td>
@@ -823,40 +809,11 @@
     <td></td>
     <td></td>
 </tr>
-<table id='parques_paquetes'>
-<caption>parques_paquetes</caption>
-<tr><td colspan='11'></td></tr>
-<tr>
-    <th>Column name</th>
-    <th>DataType</th>
-    <th><abbr title='Primary Key'>PK</abbr></th>
-    <th><abbr title='Not Null'>NN</abbr></th>
-    <th><abbr title='Unique'>UQ</abbr></th>
-    <th><abbr title='Binary'>BIN</abbr></th>
-    <th><abbr title='Unsigned'>UN</abbr></th>
-    <th><abbr title='Zero Fill'>ZF</abbr></th>
-    <th><abbr title='Auto Increment'>AI</abbr></th>
-    <th>Default</th>
-    <th>Comment</th>
-</tr>
 <tr>
     <td>idparques</td>
     <td>INT(10)</td>
     <td>&#10004;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td class='attr'>&nbsp;</td>
-    <td></td>
-    <td></td>
-</tr>
-<tr>
-    <td>idpaquete</td>
-    <td>INT(10)</td>
     <td>&#10004;</td>
-    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
