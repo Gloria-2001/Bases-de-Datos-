@@ -8,7 +8,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Schema park
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `park` ;
-
+SET GLOBAL time_zone = '-3:00';
 -- -----------------------------------------------------
 -- Schema park
 -- -----------------------------------------------------
@@ -32,14 +32,14 @@ insert into parques values
     ("Universal's Islands of Adventure","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",456),
     ("Universal's Volcano Bay","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",789),
     ("Universal CityWalk","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",012);
-
+select * from parques;
 -- -----------------------------------------------------
 -- Table `park`.`hoteles`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `park`.`hoteles` (
   `nombre_hotel` VARCHAR(100) NOT NULL,
   `beneficios` VARCHAR(10000) NOT NULL,
-  `idhotel` INT(10) NULL,
+  `idhotel` INT(10) NOT NULL,
   PRIMARY KEY (`idhotel`),
   UNIQUE INDEX `idhotel_UNIQUE` (`idhotel` ASC))
 ENGINE = InnoDB;
@@ -53,13 +53,13 @@ insert into hoteles values
     ("Loews Portofino Bay Hotel","Servicio de cabaña,Jacuzzi,Sala de juego,Tienda Italiana,Servicio de bodas,Spa",612),
     ("Universal’s Endless Summer Resort–Surfside Inn and Suites","Piscina,Gimnasio,Sala de juegos",613),
     ("Universal’s Endless Summer Resort-Dockside Inn and Suites","Piscina,Gimnasio,Sala de juegos",614);
-
+select * from hoteles;
 -- -----------------------------------------------------
 -- Table `park`.`paquetes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `park`.`paquetes` (
   `nombre_paquete` VARCHAR(100) NOT NULL,
-  `precio_por_persona` DOUBLE NOT NULL,
+  `precio_dls_por_persona` DOUBLE NOT NULL,
   `idpaquete` INT(10) NOT NULL,
   `beneficios` VARCHAR(1000) NOT NULL,
   PRIMARY KEY (`idpaquete`),
@@ -78,25 +78,7 @@ insert into paquetes values
     ("Pase anual 3",359.00,458,"Descuentos para Habitaciones del Hotel,Acceso a 2 parques,Descuento en estacionamiento y comidas"),
     ("Pase anual 4",509.00,459,"Entrada a todos los parques,Descuento en estacionamiento,Entrada temprana al parque,Descuento en habitaciones y comida");
 
--- -----------------------------------------------------
--- Table `park`.`parques_paquetes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `park`.`parques_paquetes` (
-  `idparques` INT(10) NULL,
-  `idpaquete` INT(10) NULL,
-  PRIMARY KEY (`idparques`, `idpaquete`),
-  CONSTRAINT `idparques `
-    FOREIGN KEY ()
-    REFERENCES `park`.`parques` ()
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `idpaquete`
-    FOREIGN KEY ()
-    REFERENCES `park`.`paquetes` ()
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
+select * from paquetes;
 -- -----------------------------------------------------
 -- Table `park`.`nacionalidad`
 -- -----------------------------------------------------
@@ -156,18 +138,18 @@ ENGINE = InnoDB;
 -- Table `park`.`parques_boletos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `park`.`parques_boletos` (
-  `idparques` INT(10) NULL,
-  `idcompra` INT(10) NULL,
+  `idparques` INT(10) NOT NULL,
+  `idcompraBoleto` INT(10) NOT NULL,
   `fecha` DATE NOT NULL,
-  PRIMARY KEY (`idparques`, `idcompra`),
+  PRIMARY KEY (`idparques`, `idcompraBoleto`),
   CONSTRAINT `idparques`
-    FOREIGN KEY ()
-    REFERENCES `park`.`parques` ()
+    FOREIGN KEY (`idparques`)
+    REFERENCES `park`.`parques` (`idparques`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `idcompra `
-    FOREIGN KEY ()
-    REFERENCES `park`.`compra_boletos` ()
+  CONSTRAINT `idcompraBoleto`
+    FOREIGN KEY (`idcompraBoleto`)
+    REFERENCES `park`.`compra_boletos` (`idcompraBoleto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -178,7 +160,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `park`.`compra_estadia` (
   `idCompra` INT(10) NOT NULL,
-  `tiempoHospedaje` TIME NOT NULL,
+  `tiempoHospedaje` VARCHAR(50) NOT NULL,
   `precioUnitario` DOUBLE NOT NULL,
   `precioTotal` DOUBLE NULL,
   `idpaquete` INT(10) NOT NULL,
@@ -208,13 +190,13 @@ CREATE TABLE IF NOT EXISTS `park`.`compra_hoteles` (
   `fecha` DATE NOT NULL,
   PRIMARY KEY (`idhotel`, `idCompra`),
   CONSTRAINT `idhotel`
-    FOREIGN KEY ()
-    REFERENCES `park`.`hoteles` ()
+    FOREIGN KEY (`idhotel`)
+    REFERENCES `park`.`hoteles` (`idhotel`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `idCompra`
-    FOREIGN KEY ()
-    REFERENCES `park`.`compra_estadia` ()
+    FOREIGN KEY (`idCompra`)
+    REFERENCES `park`.`compra_estadia` (`idCompra`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -271,5 +253,3 @@ CREATE TABLE IF NOT EXISTS `park`.`complementos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-USE `park` ;
