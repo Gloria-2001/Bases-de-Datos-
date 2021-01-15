@@ -9,8 +9,8 @@ import javax.swing.*;
 
 public class parkUniversal extends JFrame implements ActionListener{
     JButton bottonConect,bottonInsert;
-    JLabel labelRegistry,labelName, labelRace, labelAge, labelGender, lEmpty1, lEmpty2,labelGender1;
-    JTextField tableID, tableName, tableApellido, tableNacionalidad,tableNacio;
+    JLabel labelRegistry,labelName, labelRace, labelAge, labelGender, lEmpty1, lEmpty2,labelGender1,labelBoletos,labelPaquete;
+    JTextField tableID, tableName, tableApellido, tableNacionalidad,tableNacio,tableBoletos,tablePaquete;
     JPanel pan1,pan2,pan3;
 
     public parkUniversal(){
@@ -18,7 +18,7 @@ public class parkUniversal extends JFrame implements ActionListener{
         bottonConect.addActionListener(this);
         bottonInsert = new JButton("Ingresar");		
         bottonInsert.addActionListener(this);
-        labelRegistry = new JLabel("Registro");
+        labelRegistry = new JLabel("Registro del cliente y compra de boletos o paquete");
         lEmpty1 = new JLabel("");
         lEmpty2 = new JLabel("");
         labelName = new JLabel("ID: ");
@@ -31,8 +31,12 @@ public class parkUniversal extends JFrame implements ActionListener{
         tableNacionalidad = new JTextField(20);
         labelGender1 = new JLabel("Nacionalidad: ");
         tableNacio = new JTextField(20);
+        labelBoletos = new JLabel("Cuantos boletos quiere ? o indique con un 0 si desea un paquete: ");
+        tableBoletos = new JTextField(20);
+        labelPaquete = new JLabel("Que paquete desea o indique que NINGUNO: ");
+        tablePaquete= new JTextField(20);
         pan1 = new JPanel();
-        pan1.setLayout(new GridLayout(5,2,5,5));
+        pan1.setLayout(new GridLayout(7,2,5,5));
         pan1.add(labelName);      
         pan1.add(tableID);
         pan1.add(labelRace);	
@@ -43,6 +47,10 @@ public class parkUniversal extends JFrame implements ActionListener{
         pan1.add(tableNacionalidad);
         pan1.add(labelGender1);	
         pan1.add(tableNacio);
+        pan1.add(labelBoletos);	
+        pan1.add(tableBoletos);
+        pan1.add(labelPaquete);	
+        pan1.add(tablePaquete);
         pan2 = new JPanel();
         pan2.setLayout(new GridLayout(1,2,5,5));
         pan2.add(bottonConect);		
@@ -68,11 +76,16 @@ public class parkUniversal extends JFrame implements ActionListener{
 public void actionPerformed(ActionEvent e) {                                        
     JButton selected = (JButton)e.getSource();
     String id,name,apellido,idnacionalidad,nombrenacio;
+    String boletos,paquetes;
         id=tableID.getText();
         name=tableName.getText();
         apellido=tableApellido.getText();
         idnacionalidad=tableNacionalidad.getText();
         nombrenacio=tableNacio.getText();
+        boletos=tableBoletos.getText();
+        int a = Integer.parseInt(boletos.trim());
+        paquetes=tablePaquete.getText();
+        
 if(selected == bottonConect){
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -100,7 +113,10 @@ else{
         tableNacio.setText("");
         ResultSet rs = stm.executeQuery("select idCliente,nombre,apellido,idNacionalidad from cliente");
         System.out.println("\nDATOS RECIENTEMENTE INGRESADOS");
-        System.out.println("ID: "+id+"\n"+"NOMBRE: "+name+"\n"+"APELLIDO: "+apellido+"\n"+"NACIONALIDAD: "+nombrenacio+"\n");
+        System.out.println("ID: "+id+"\n"+"NOMBRE: "+name+"\n"+"APELLIDO: "+apellido+"\n"+"NACIONALIDAD: "+nombrenacio+"\n"+"BOLETOS COMPRADOS: "+boletos+"\n"+"PAQUETE COMPRADO: "+paquetes+"\n");
+        int boletoSum = a * 109;
+        System.out.println( "Total cantidad a pagar de los boletos = "+boletoSum+" dolares \n");
+        System.out.println( "Paquete deseado = "+paquetes+"\n");
         stm.close();
         con.close();
     } catch (SQLException ex) {
