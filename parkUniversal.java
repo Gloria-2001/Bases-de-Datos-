@@ -9,8 +9,8 @@ import javax.swing.*;
 
 public class parkUniversal extends JFrame implements ActionListener{
     JButton bottonConect,bottonInsert;
-    JLabel labelRegistry,labelName, labelRace, labelAge, labelGender, lEmpty1, lEmpty2,labelGender1,labelBoletos,labelPaquete;
-    JTextField tableID, tableName, tableApellido, tableNacionalidad,tableNacio,tableBoletos,tablePaquete;
+    JLabel labelRegistry,labelName, labelRace, labelAge, labelGender, lEmpty1, lEmpty2,labelBoletos,labelPaquete;
+    JTextField tableID, tableName, tableApellido, tableNacionalidad,tableBoletos,tablePaquete;
     JPanel pan1,pan2,pan3;
 
     public parkUniversal(){
@@ -29,8 +29,6 @@ public class parkUniversal extends JFrame implements ActionListener{
         tableApellido = new JTextField(20);
         labelGender = new JLabel("ID de su nacionalidad: ");
         tableNacionalidad = new JTextField(20);
-        labelGender1 = new JLabel("Nacionalidad: ");
-        tableNacio = new JTextField(20);
         labelBoletos = new JLabel("Cuantos boletos quiere ? o indique con un 0 si desea un paquete: ");
         tableBoletos = new JTextField(20);
         labelPaquete = new JLabel("Que paquete desea o indique que NINGUNO: ");
@@ -45,8 +43,6 @@ public class parkUniversal extends JFrame implements ActionListener{
         pan1.add(tableApellido);
         pan1.add(labelGender);	
         pan1.add(tableNacionalidad);
-        pan1.add(labelGender1);	
-        pan1.add(tableNacio);
         pan1.add(labelBoletos);	
         pan1.add(tableBoletos);
         pan1.add(labelPaquete);	
@@ -81,7 +77,6 @@ public void actionPerformed(ActionEvent e) {
         name=tableName.getText();
         apellido=tableApellido.getText();
         idnacionalidad=tableNacionalidad.getText();
-        nombrenacio=tableNacio.getText();
         boletos=tableBoletos.getText();
         int a = Integer.parseInt(boletos.trim());
         paquetes=tablePaquete.getText();
@@ -104,16 +99,14 @@ else{
     try {
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/park", "root", "20Gerika01");
         Statement stm = con.createStatement();
-        stm.executeUpdate("insert into nacionalidad(idNacionalidad,nombreNacionalidad)values('"+idnacionalidad+"','"+nombrenacio+"')");
         stm.executeUpdate("insert into cliente(idCliente,nombre,apellido,idNacionalidad)values('"+id+"','"+name+"','"+apellido+"','"+idnacionalidad+"')");
         tableID.setText("");
         tableName.setText("");
         tableApellido.setText("");
         tableNacionalidad.setText("");
-        tableNacio.setText("");
         ResultSet rs = stm.executeQuery("select idCliente,nombre,apellido,idNacionalidad from cliente");
         System.out.println("\nDATOS RECIENTEMENTE INGRESADOS");
-        System.out.println("ID: "+id+"\n"+"NOMBRE: "+name+"\n"+"APELLIDO: "+apellido+"\n"+"NACIONALIDAD: "+nombrenacio+"\n"+"BOLETOS COMPRADOS: "+boletos+"\n"+"PAQUETE COMPRADO: "+paquetes+"\n");
+        System.out.println("ID: "+id+"\n"+"NOMBRE: "+name+"\n"+"APELLIDO: "+apellido+"\n"+"ID NACIONALIDAD: "+idnacionalidad+"\n"+"BOLETOS COMPRADOS: "+boletos+"\n"+"PAQUETE COMPRADO: "+paquetes+"\n");
         int boletoSum = a * 109;
         System.out.println( "Total cantidad a pagar de los boletos = "+boletoSum+" dolares \n");
         System.out.println( "Paquete deseado = "+paquetes+"\n");

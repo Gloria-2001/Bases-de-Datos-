@@ -15,7 +15,18 @@ SET GLOBAL time_zone = '-3:00';
 CREATE SCHEMA IF NOT EXISTS `park` ;
 USE `park` ;
 
-
+drop table parques;
+drop table paquetes;
+drop table cliente;
+drop table compra_boletos;
+drop table compra_estadia;
+drop table compra_hoteles;
+drop table evento;
+drop table hoteles;
+drop table nacionalidad;
+drop table parques_boletos;
+drop table tipo;
+drop table complementos;
 -- -----------------------------------------------------
 -- Table `park`.`parques`
 -- -----------------------------------------------------
@@ -32,33 +43,7 @@ insert into parques values
 	("Universal Studios Florida","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",123),
     ("Universal's Islands of Adventure","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",124),
     ("Universal's Volcano Bay","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",125),
-    ("Universal CityWalk","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",126),
-    ("Universal Studios Florida ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",127),
-    ("Universal's Islands of Adventure ","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",128),
-    ("Universal's Volcano Bay ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",129),
-    ("Universal CityWalk ","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",130),
-    ("Universal Studios Florida ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",131),
-    ("Universal's Islands of Adventure","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",132),
-    ("Universal's Volcano Bay ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",133),
-    ("Universal CityWalk ","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",134),
-    ("Universal Studios Florida ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",135),
-    ("Universal's Islands of Adventure ","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",136),
-    ("Universal's Volcano Bay ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",137),
-    ("Universal CityWalk ","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",138),
-    ("Universal Studios Florida ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",139),
-    ("Universal's Islands of Adventure ","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",140),
-    ("Universal's Volcano Bay ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",141),
-    ("Universal CityWalk ","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",142),
-    ("Universal Studios Florida ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",143),
-    ("Universal's Islands of Adventure ","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",144),
-    ("Universal's Volcano Bay ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",145),
-    ("Universal CityWalk ","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",146),
-    ("Universal Studios Florida ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",147),
-    ("Universal's Islands of Adventure ","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",148),
-    ("Universal's Volcano Bay ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",149),
-    ("Universal CityWalk ","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",150),
-    ("Universal Studios Florida ","9:00-17:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",151),
-    ("Universal's Islands of Adventure ","10:00-18:00","Universal Blvd, Orlando, FL 32819, Estados Unidos",152);
+    ("Universal CityWalk","8:00-22:00","6000 Universal Blvd, Orlando, FL 32819, Estados Unidos",126);
 select * from parques;
 -- -----------------------------------------------------
 -- Table `park`.`hoteles`
@@ -73,35 +58,13 @@ ENGINE = InnoDB;
 
 insert into hoteles values
 	("Universal's Cabana Bay Beach Resort","Encuentros de personajes,Piscina,Alquiler cabañas,Gimnasio,Sala de juegos",607),
-    ("Loews Royal Pacific Resort","Rum Dinner,Acceso a la playa,Piscina,Gimnasio,Servicio de bodas",608),
+    ("Loews Sapphire Falls Resort","Rum Dinner,Acceso a la playa,Piscina,Gimnasio,Servicio de bodas",608),
 	("Universal’s Aventura Hotel","Restaurante,Gimnasio,Piscina,Zona azuatica para niños,Campamentos para niños",609),
     ("Loews Royal Pacific Resort","Piscina estilo laguna,Gimnasio,Ceremonia de antorchas,Servicio de bodas",610),
     ("Hard Rock Hotel","Conciertos,Escuchar musica bajo el agua,Museo del Rock,Gimnasio,Servicio de bodas",611),
     ("Loews Portofino Bay Hotel","Servicio de cabaña,Jacuzzi,Sala de juego,Tienda Italiana,Servicio de bodas,Spa",612),
     ("Universal’s Endless  Summer Resort–Surfside Inn and Suites","Piscina,Gimnasio,Sala de juegos",613),
-    ("Universal’s Endless  Summer Resort-Dockside Inn and Suites","Piscina,Gimnasio,Sala de juegos",614),
-    ("Universal's Cabana Bay Beach Resort","Encuentros de personajes,Piscina,Alquiler cabañas,Gimnasio,Sala de juegos",615),
-    ("Loews Sapphire Falls Resort","Rum Dinner,Acceso a la playa,Piscina,Gimnasio,Servicio de bodas",616),
-	("Universal’s Aventura Hotel","Restaurante,Gimnasio,Piscina,Zona azuatica para niños,Campamentos para niños",617),
-    ("Loews Royal Pacific Resort","Piscina estilo laguna,Gimnasio,Ceremonia de antorchas,Servicio de bodas",618),
-    ("Hard Rock Hotel","Conciertos,Escuchar musica bajo el agua,Museo del Rock,Gimnasio,Servicio de bodas",619),
-    ("Loews Portofino BayHotel","Servicio de cabaña,Jacuzzi,Sala de juego,Tienda Italiana,Servicio de bodas,Spa",620),
-    ("Universal’s Endless Summer Resort–Surfside Inn and Suites","Piscina,Gimnasio,Sala de juegos",621),
-    ("Universal’s Endless Summer Resort-Dockside Inn and Suites","Piscina,Gimnasio,Sala de juegos",622),
-    ("Universal's Cabana Bay Beach Resort","Encuentros de personajes,Piscina,Alquiler cabañas,Gimnasio,Sala de juegos",623),
-    ("Loews Sapphire Falls Resort","Rum Dinner,Acceso a la playa,Piscina,Gimnasio,Servicio de bodas",624),
-	("Universal’s Aventura Hotel","Restaurante,Gimnasio,Piscina,Zona azuatica para niños,Campamentos para niños",625),
-    ("Loews Royal Pacific Resort","Piscina estilo laguna,Gimnasio,Ceremonia de antorchas,Servicio de bodas",626),
-    ("Hard Rock Hotel","Conciertos,Escuchar musica bajo el agua,Museo del Rock,Gimnasio,Servicio de bodas",627),
-    ("Loews Portofino Bay Hotel HARD","Servicio de cabaña,Jacuzzi,Sala de juego,Tienda Italiana,Servicio de bodas,Spa",628),
-    ("Universal’s Endless  Summer Resort–Surfside Inn and Suites","Piscina,Gimnasio,Sala de juegos",629),
-    ("Universal’s Endless SUMMER Resort-Dockside Inn and Suites","Piscina,Gimnasio,Sala de juegos",630),
-    ("Universal's Cabana Bay Beach Resort","Encuentros de personajes,Piscina,Alquiler cabañas,Gimnasio,Sala de juegos",631),
-    ("Loews Royal Pacific Resort","Rum Dinner,Acceso a la playa,Piscina,Gimnasio,Servicio de bodas",632),
-	("Universal’s Aventura Hotel","Restaurante,Gimnasio,Piscina,Zona azuatica para niños,Campamentos para niños",633),
-    ("Loews Royal Pacific Resort","Piscina estilo laguna,Gimnasio,Ceremonia de antorchas,Servicio de bodas",634),
-    ("Hard Rock Hotel ","Conciertos,Escuchar musica bajo el agua,Museo del Rock,Gimnasio,Servicio de bodas",635),
-    ("Universal’s Endless  Summer Resort–Surfside Inn and Suites","Piscina,Gimnasio,Sala de juegos",636);
+    ("Universal’s Endless  Summer Resort-Dockside Inn and Suites","Piscina,Gimnasio,Sala de juegos",614);
 select * from hoteles;
 -- -----------------------------------------------------
 -- Table `park`.`paquetes`
@@ -155,10 +118,13 @@ CREATE TABLE IF NOT EXISTS `park`.`nacionalidad` (
   `nombreNacionalidad` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idNacionalidad`))
 ENGINE = InnoDB;
-insert into nacionalidad values (400,"ALEMAN"),(401,"MEXICANO"),(402,"JAPONES"),(403,"RUSO"),(404,"ALEMAN"),(405,"BRASILEÑO"),(406,"TURCO"),(407,"ALEMAN"),
-(800,"RUSO"),(801,"MEXICANO"),(802,"MEXICANO"),(803,"CHINO"),(804,"COREANO"),(805,"ESTADOUNIDENSE"),(806,"JAPONES"),(900,"BRASILEÑO"),(901,"ESPAÑOL"),(902,"ALEMAN"),(903,"TURCO"),
-(100,"TURCO"),(101,"CHINO"),(102,"TAILANDES"),(103,"TAILANDES"),(104,"ARGENTINO"),(105,"ARGENTINO"),(106,"ALEMAN"),(107,"CHINO"),(108,"BRASILEÑO"),(109,"RUSO"),(110,"ALEMAN");
+insert into nacionalidad values (400,"ALEMAN"),(401,"MEXICANO"),(402,"JAPONES"),(403,"RUSO"),(404,"ARABE"),(405,"BRASILEÑO"),(406,"TURCO"),(407,"ARGENTINO"),
+(800,"FILIPINO"),(801,"COREANO"),(802,"CUBANO"),(803,"CHINO"),(804,"PERUANO"),(805,"ESTADOUNIDENSE"),(806,"EGIPCIO"),(900,"HOLANDES"),(901,"ESPAÑOL"),(902,"AUSTRALIANO"),(903,"NORUEGO"),
+(100,"PARAGUAYO"),(101,"SUECO"),(102,"TAILANDES"),(103,"SUIZO"),(104,"BELGA"),(105,"BOLIVIANO"),(106,"CANADIENSE"),(107,"POLACO"),(108,"ITALIANO"),(109,"FRANCES"),(110,"CHILENO");
 select * from nacionalidad;
+select * from nacionalidad;
+drop table nacionalidad;
+drop table cliente;
 show tables;
 -- -----------------------------------------------------
 -- Table `park`.`cliente`
@@ -188,7 +154,7 @@ select c.nombre,n.nombreNacionalidad from cliente c,nacionalidad n where c.idNac
 -- Table `park`.`compra_boletos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `park`.`compra_boletos` (
-  `no. boletos` INT NOT NULL,
+  `numBoletos` INT NOT NULL,
   `precioUnitario` DOUBLE NOT NULL,
   `idpaquete` INT(10),
   `idcompraBoleto` INT(10) NOT NULL,
@@ -217,6 +183,8 @@ insert into compra_boletos values (1,109,450,100,12378),(2,109,451,101,23456),(2
 (1,109,470,120,68950),(2,109,471,121,70602),(2,109,472,122,76444),(2,109,473,123,78650),
 (2,109,474,124,78654),(2,109,475,125,78954),(2,109,476,126,78965),(2,109,477,127,79050),
 (2,109,478,128,80050),(2,109,479,129,84536);
+
+
 -- -----------------------------------------------------
 -- Table `park`.`parques_boletos`
 -- -----------------------------------------------------
@@ -237,13 +205,13 @@ CREATE TABLE IF NOT EXISTS `park`.`parques_boletos` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 insert into parques_boletos values (123,100,'2020/03/15'),(124,101,'2020/03/16'),(125,102,'2020/03/19'),(126,103,'2020/03/22'),
-(127,104,'2020/03/15'),(128,105,'2020/03/25'),(129,106,'2020/03/05'),(130,107,'2020/03/05'),
-(131,108,'2020/03/19'),(132,109,'2020/03/20'),(133,110,'2020/03/04'),(134,111,'2020/03/17'),
-(135,112,'2020/03/13'),(136,113,'2020/03/11'),(137,114,'2020/03/12'),(138,115,'2020/03/10'),
-(139,116,'2020/03/01'),(140,117,'2020/03/25'),(141,118,'2020/03/28'),(142,119,'2020/03/11'),
-(143,120,'2020/03/15'),(144,121,'2020/03/12'),(145,122,'2020/03/10'),(146,123,'2020/03/19'),
-(147,124,'2020/03/01'),(148,125,'2020/03/17'),(149,126,'2020/03/19'),(150,127,'2020/03/18'),
-(151,128,'2020/03/21'),(152,129,'2020/03/14');
+(123,104,'2020/03/15'),(124,105,'2020/03/25'),(125,106,'2020/03/05'),(126,107,'2020/03/05'),
+(126,108,'2020/03/19'),(125,109,'2020/03/20'),(124,110,'2020/03/04'),(123,111,'2020/03/17'),
+(126,112,'2020/03/13'),(125,113,'2020/03/11'),(124,114,'2020/03/12'),(123,115,'2020/03/10'),
+(123,116,'2020/03/01'),(124,117,'2020/03/25'),(125,118,'2020/03/28'),(126,119,'2020/03/11'),
+(123,120,'2020/03/15'),(124,121,'2020/03/12'),(125,122,'2020/03/10'),(126,123,'2020/03/19'),
+(126,124,'2020/03/01'),(125,125,'2020/03/17'),(124,126,'2020/03/19'),(123,127,'2020/03/18'),
+(123,128,'2020/03/21'),(124,129,'2020/03/14');
 select * from parques_boletos;
 -- -----------------------------------------------------
 -- Table `park`.`compra_estadia`
@@ -299,12 +267,12 @@ CREATE TABLE IF NOT EXISTS `park`.`compra_hoteles` (
 ENGINE = InnoDB;
 insert into compra_hoteles values (607,330,'2020/03/05'),(608,331,'2020/03/15'),(609,332,'2020/03/10'),(610,333,'2020/03/11'),
 (611,334,'2020/03/05'),(612,335,'2020/03/12'),(613,336,'2020/03/09'),(614,337,'2020/03/15'),
-(615,338,'2020/03/15'),(616,339,'2020/03/05'),(617,340,'2020/03/05'),(618,341,'2020/03/11'),
-(619,342,'2020/03/18'),(620,343,'2020/03/08'),(621,344,'2020/03/16'),(622,345,'2020/03/07'),
-(623,346,'2020/03/09'),(624,347,'2020/03/09'),(625,348,'2020/03/15'),(626,349,'2020/03/04'),
-(627,350,'2020/03/08'),(628,351,'2020/03/14'),(629,352,'2020/03/11'),(630,353,'2020/03/07'),
-(631,354,'2020/03/12'),(632,355,'2020/03/06'),(633,356,'2020/03/04'),(634,357,'2020/03/13'),
-(635,358,'2020/03/05'),(636,359,'2020/03/05');
+(614,338,'2020/03/15'),(613,339,'2020/03/05'),(612,340,'2020/03/05'),(611,341,'2020/03/11'),
+(610,342,'2020/03/18'),(609,343,'2020/03/08'),(608,344,'2020/03/16'),(607,345,'2020/03/07'),
+(607,346,'2020/03/09'),(608,347,'2020/03/09'),(609,348,'2020/03/15'),(610,349,'2020/03/04'),
+(611,350,'2020/03/08'),(612,351,'2020/03/14'),(613,352,'2020/03/11'),(614,353,'2020/03/07'),
+(614,354,'2020/03/12'),(613,355,'2020/03/06'),(612,356,'2020/03/04'),(611,357,'2020/03/13'),
+(610,358,'2020/03/05'),(609,359,'2020/03/05');
 
 -- -----------------------------------------------------
 -- Table `park`.`evento`
@@ -324,13 +292,13 @@ CREATE TABLE IF NOT EXISTS `park`.`evento` (
 ENGINE = InnoDB;
 
 insert into evento values (800,"Halloween Horrors Nights","OTOÑO",123),(801,"Grinchmas","INVIERNO",124),(802,"Mardi Gras","PRIMAVERA",125),(803,"Fiestas Navideñas","INVIERNO",126),
-(804," Rock the Universe","PRIMAVERA",127),(805,"Marvel Character Dinner","PRIMAVERA",128),(806,"Mardi Gras","PRIMAVERA",129),(807,"Cena Fiestas Navideñas","PRIMAVERA",130),
-(808,"Las Navidades en The Wizarding World of Harry Potter","INVIERNO",131),(809,"The Grich and Friends Character Breakfast","INVIERNO",132),(810,"Dia de beneficios para los portadores de Pase Universal","PRIMAVERA",133),(811,"Harbor Nights","PRIMAVERA",134),
-(812,"Cena Fiestas Navideñas","INVIERNO",135),(813,"The Grich and Friends Character Breakfast","INVIERNO",136),(814,"Cena Fiestas Navideñas","INVIERNO",137),(815,"Hard Rock Live Orlando","PRIMAVERA",138),
-(816,"Globos y Carrozas de Macy´s","INVIERNO",139),(817,"Marvel Character Dinner","PRIMAVERA",140),(818,"Cena Fiestas Navideñas","INVIERNO",141),(819,"Harbor Nights","OTOÑO",142),
-(820,"Running Universal","PRIMAVERA",143),(821,"Wine Riffs","INVIERNO",144),(822,"Rum Dinner en Sapphire Falls","INVIERNO",145),(823,"Harbor Nights","INVIERNO",146),
-(824,"Mardi Gras","PRIMAVERA",147),(825,"Bayou Boil Mardi Gras","VERANO",148),(826,"Harbor Nights","INVIERNO",149),(827,"The Grich and Friends Character Breakfast","INVIERNO",150),
-(828,"The Grich and Friends Character Breakfast","INVIERNO",151),(829,"The Grich and Friends Character Breakfast","INVIERNO",152);
+(804," Rock the Universe","PRIMAVERA",123),(805,"Marvel Character Dinner","PRIMAVERA",124),(806,"Mardi Gras","PRIMAVERA",123),(807,"Cena Fiestas Navideñas","INVIERNO",126),
+(808,"Las Navidades en The Wizarding World of Harry Potter","INVIERNO",123),(809,"The Grich and Friends Character Breakfast","INVIERNO",124),(810,"Dia de beneficios para los portadores de Pase Universal","PRIMAVERA",125),(811,"Harbor Nights","PRIMAVERA",126),
+(812,"Cena Fiestas Navideñas","INVIERNO",123),(813,"The Grich and Friends Character Breakfast","INVIERNO",126),(814,"Cena Fiestas Navideñas","INVIERNO",125),(815,"Hard Rock Live Orlando","PRIMAVERA",126),
+(816,"Globos y Carrozas de Macy´s","INVIERNO",126),(817,"Marvel Character Dinner","PRIMAVERA",125),(818,"Cena Fiestas Navideñas","INVIERNO",124),(819,"Harbor Nights","OTOÑO",123),
+(820,"Running Universal","PRIMAVERA",123),(821,"Wine Riffs","INVIERNO",124),(822,"Rum Dinner en Sapphire Falls","INVIERNO",125),(823,"Harbor Nights","INVIERNO",126),
+(824,"Mardi Gras","PRIMAVERA",126),(825,"Bayou Boil Mardi Gras","VERANO",125),(826,"Harbor Nights","INVIERNO",124),(827,"The Grich and Friends Character Breakfast","INVIERNO",123),
+(828,"The Grich and Friends Character Breakfast","INVIERNO",125),(829,"The Grich and Friends Character Breakfast","INVIERNO",124);
 -- -----------------------------------------------------
 -- Table `park`.`tipo`
 -- -----------------------------------------------------
@@ -340,14 +308,9 @@ CREATE TABLE IF NOT EXISTS `park`.`tipo` (
   PRIMARY KEY (`idTipo`))
 ENGINE = InnoDB;
 
-insert into tipo values (1100,"ATRACCION"),(1101,"ATRACCION"),(1102,"ATRACCION"),(1103,"ATRACCION"),
-(1104,"ATRACCION"),(1105,"ATRACCION"),(1106,"ATRACCION"),(1107,"ATRACCION"),
-(1108,"ATRACCION"),(1109,"ATRACCION"),(1110,"ATRACCION"),(1111,"ATRACCION"),
-(1112,"RESTAURANTE"),(1113,"RESTAURANTE"),(1114,"ESPECTACULOS"),(1115,"ESPECTACULOS"),
-(1116,"ENTRETENIMIENTO"),(1117,"ENTRETENIMIENTO"),(1118,"ENTRETENIMIENTO"),(1119,"ENTRETENIMIENTO"),
-(1120,"ENTRETENIMIENTO"),(1121,"ENTRETENIMIENTO"),(1122,"Universal Orlando Store"),(1123,"Universal Orlando Store"),
-(1124,"Universal Orlando Store"),(1125,"Universal Orlando Store"),(1126,"Universal Orlando Store"),(1127,"Universal Orlando Store"),
-(1128,"Universal Orlando Store"),(1129,"Universal Orlando Store");
+insert into tipo values (1100,"ATRACCION"),
+(1102,"RESTAURANTE"),(1103,"ESPECTACULOS"),
+(1104,"ENTRETENIMIENTO"),(1105,"Universal Orlando Store");
 
 -- -----------------------------------------------------
 -- Table `park`.`complementos`
@@ -373,19 +336,23 @@ CREATE TABLE IF NOT EXISTS `park`.`complementos` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-insert into complementos values (2000,"Harry Potter and the Escape from Gringotts ",'13:30:00','14:30:00',123,1100),(2001,"Hagrid’s Magical Creatures Motorbike Adventure",'11:30:00','12:30:00',124,1101),
-(2002,"Krakatau Aqua Coaster",'13:30:00','14:30:00',125,1102),(2003,"NO TIENE ATRACIONES",'00:00:00','00:00:00',126,1103),
-(2004,"Harry Potter and the Escape from Gringotts ",'13:30:00','14:30:00',127,1104),(2005,"Hagrid’s Magical Creatures Motorbike Adventure",'11:30:00','12:30:00',128,1105),
-(2006,"Krakatau Aqua Coaster",'13:30:00','14:30:00',129,1106),(2007,"NO TIENE ATRACIONES",'00:00:00','00:00:00',130,1107),
-(2008,"Despicable Me Minion Mayhem",'13:30:00','14:30:00',131,1108),(2009,"Jurassic Park River Adventure",'11:30:00','12:30:00',132,1109),
-(2010,"Waturi Beach",'13:30:00','14:30:00',133,1110),(2011,"NO TIENE ATRACIONES",'00:00:00','00:00:00',134,1111),
-(2012,"Lombards Seafood Grille",'09:30:00','22:30:00',135,1112),(2013,"Mythos Restaurant",'09:30:00','22:30:00',136,1113),
-(2014,"Dr. Seuss Character Zone",'10:00:00','12:30:00',137,1114),(2015,"Frog Choir Hogsmeade",'11:00:00','12:00:00',138,1115),
-(2016,"Marvel Villains",'10:00:00','18:30:00',139,1116),(2017,"Oh Stories",'11:15:00','12:15:00',140,1117),
-(2018,"Raptor Encounter",'10:00:00','12:30:00',141,1118),(2019,"Animal Actors on Location",'11:30:00','12:45:00',142,1119),
-(2020,"Beat Builders",'10:00:00','12:30:00',143,1119),(2021,"The Blues Brothers",'11:00:00','12:00:00',144,1120),
-(2022,"TIENDA NUMERO 1",'10:00:00','17:00:00',145,1121),(2023,"TIENDA NUMERO 2",'11:00:00','17:00:00',146,1122),
-(2024,"TIENDA NUMERO 3",'10:00:00','17:00:00',147,1123),(2025,"TIENDA NUMERO 4",'11:00:00','17:00:00',148,1124),
-(2026,"TIENDA NUMERO 5",'10:00:00','17:00:00',149,1125),(2027,"TIENDA NUMERO 6",'11:00:00','17:00:00',150,1126),
-(2028,"TIENDA NUMERO 1",'10:00:00','17:00:00',151,1127),(2029,"TIENDA NUMERO 7",'11:00:00','17:00:00',152,1128);
-
+insert into complementos values (2000,"Harry Potter and the Escape from Gringotts ",'13:30:00','14:30:00',123,1100),(2001,"Hagrid’s Magical Creatures Motorbike Adventure",'11:30:00','12:30:00',124,1100),
+(2002,"Krakatau Aqua Coaster",'13:30:00','14:30:00',125,1100),(2003,"NO TIENE ATRACIONES",'00:00:00','00:00:00',126,1100),
+(2004,"Harry Potter and the Escape from Gringotts ",'13:30:00','14:30:00',125,1100),(2005,"Hagrid’s Magical Creatures Motorbike Adventure",'11:30:00','12:30:00',123,1100),
+(2006,"Krakatau Aqua Coaster",'13:30:00','14:30:00',124,1100),(2007,"NO TIENE ATRACIONES",'00:00:00','00:00:00',126,1100),
+(2008,"Despicable Me Minion Mayhem",'13:30:00','14:30:00',123,1100),(2009,"Jurassic Park River Adventure",'11:30:00','12:30:00',124,1100),
+(2010,"Waturi Beach",'13:30:00','14:30:00',125,1100),(2011,"NO TIENE ATRACIONES",'00:00:00','00:00:00',126,1100),
+(2012,"Lombards Seafood Grille",'09:30:00','22:30:00',123,1102),(2013,"Mythos Restaurant",'09:30:00','22:30:00',124,1102),
+(2014,"Dr. Seuss Character Zone",'10:00:00','12:30:00',125,1103),(2015,"Frog Choir Hogsmeade",'11:00:00','12:00:00',126,1103),
+(2016,"Marvel Villains",'10:00:00','18:30:00',123,1104),(2017,"Oh Stories",'11:15:00','12:15:00',124,1104),
+(2018,"Raptor Encounter",'10:00:00','12:30:00',125,1104),(2019,"Animal Actors on Location",'11:30:00','12:45:00',126,1104),
+(2020,"Beat Builders",'10:00:00','12:30:00',123,1104),(2021,"The Blues Brothers",'11:00:00','12:00:00',124,1104),
+(2022,"TIENDA NUMERO 1",'10:00:00','17:00:00',125,1104),(2023,"TIENDA NUMERO 2",'11:00:00','17:00:00',126,1105),
+(2024,"TIENDA NUMERO 3",'10:00:00','17:00:00',123,1105),(2025,"TIENDA NUMERO 4",'11:00:00','17:00:00',124,1105),
+(2026,"TIENDA NUMERO 5",'10:00:00','17:00:00',125,1105),(2027,"TIENDA NUMERO 6",'11:00:00','17:00:00',126,1105),
+(2028,"TIENDA NUMERO 1",'10:00:00','17:00:00',123,1105),(2029,"TIENDA NUMERO 7",'11:00:00','17:00:00',124,1105);
+show tables;
+drop table complementos;
+drop table tipo;
+drop table evento;
+drop table parques;
